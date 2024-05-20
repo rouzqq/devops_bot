@@ -170,7 +170,7 @@ def get_w(update: Update, context):
     
 
 def get_critical(update: Update, context):
-    update.message.reply_text(connection('grep CRITICAL /var/log/syslog | tail -n 5'))
+    update.message.reply_text(connection('journalctl -p 2 -n 5'))
     return ConversationHandler.END
 
 def get_auths(update: Update, context):
